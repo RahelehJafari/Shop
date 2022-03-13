@@ -6,9 +6,11 @@ from django.urls import reverse
 class Book(models.Model):
     type_Coiches = {('V', 'voice'), ('T', 'text')}
     title = models.CharField(max_length=100)
+    slug = models.SlugField()
     author = models.ManyToManyField('Aut', blank = False)
     translator = models.ManyToManyField('Tr', blank = True)
     publisher = models.CharField(max_length=100)
+    description = models.TextField(null=True)
     published_year = models.IntegerField(null=True)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
@@ -16,16 +18,15 @@ class Book(models.Model):
     ISBN = models.IntegerField(null=True)
     type = models.CharField(choices=type_Coiches, max_length=1, blank=True)
     pages = models.IntegerField(null=True)
-    Capacity = models.CharField(max_length=10)
     image = models.ImageField(upload_to='images/product/%Y/%m/%d', blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=0)
+
     
 
     class Meta:
         ordering = ('create_time',)
 
-    def __str__(self):
-        return self.name
+    
 
     def get_absolute_url(self):
         return reverse('shop:book', args=[self.id])
@@ -33,12 +34,15 @@ class Book(models.Model):
 
 class Aut(models.Model):
     name = models.CharField(max_length=50)
+    description = models.TextField(null=True)
+
      
     def __str__(self):
       return self.name
 
 class Tr(models.Model):
     name = models.CharField(max_length=50)
+    description = models.TextField(null=True)
      
     def __str__(self):
       return self.name
@@ -50,6 +54,13 @@ class Cat(models.Model):
       return self.name
 
 
+class Pub(models.Model):
+    name = models.CharField(max_length=50)
+    logo = models.ImageField(upload_to='images/publogo', blank=True)
+    description = models.TextField(null=True)
+     
+    def __str__(self):
+      return self.name
 
 class Order(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)

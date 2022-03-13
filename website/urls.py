@@ -1,11 +1,22 @@
-
 from django.contrib import admin
-from django.urls import path
-from shop import views
+from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
+    path('', include('shop.urls')),
     path('admin/', admin.site.urls),
-    path('', views.index , name="home"),
+    path('book/<int:pk>/', include('shop.urls')),
+    path('author/', include('shop.urls')),
+    path('translator/', include('shop.urls')),
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+#urlpatterns = [
+#    path('admin/', admin.site.urls),
+#    path('', views.index , name="home"),
     
 
-]
+#]

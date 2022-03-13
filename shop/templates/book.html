@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <img src="{{ book_detail.image.url }}" alt="">
+</div>
+
+   <div class="book-details">
+        <h3 class="book-name">{{ book_detail.name }}</h3>
+        
+        <p>{{ book_detail.description }}</p>
+
+    </div>
+
+
+{% endblock %}

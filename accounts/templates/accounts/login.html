@@ -1,0 +1,68 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block banner %} 
+       
+{% endblock %} 
+
+
+{% block content %}
+
+<div  style=" text-align: center; padding:50px; float:left; width:500px">
+  
+    <a style="font-family:homa; font-size:40px"> (: خوش برگشتی  </a>
+
+    <br/>
+    <div style="height: 50px;"></div>
+    <a style="font-family:homa; font-size:20px">  ورود به حساب کاربری   </a> 
+
+    <div style="height: 50px;"></div>
+    <div id="login" >
+      <form class="form-horizontal" name="LoginForm" action="{% url 'accounts:login' %}" method="post">
+      {% csrf_token %}
+      {% if next %}
+          <input type="hidden" name="next" value="{{ next }}" />
+      {% endif %}
+      <div class="control-group">
+          <label class="control-label" for="username">نام کاربری</label>
+          <div class="controls">
+              <input type="text" id="username" name="username"  placeholder="Username">
+          </div>
+      </div>
+      <div style="height: 20px;"></div>
+      <div class="control-group">
+          <label class="control-label" for="password">رمز عبور</label>
+          <div class="controls">
+              <input type="password" name="password" id="password" placeholder="Password">
+          </div>
+      </div>
+      <div style="height: 20px;"></div>
+      <div class="control-group">
+          <div class="controls">
+              <button type="submit" class="btn">  تایید </button>
+          </div>
+      </div>
+      </form>
+  </div>
+
+  <div style="height: 50px;"></div>
+  
+       <a  href="{% url 'accounts:signup' %}">    
+       <button style="border: none; 
+                color: #08929c; padding: 5px 5px;
+                text-align: center; text-decoration: none;
+                display: inline-block; font-size: 22px; font-family:homa;
+                 margin: 0px 0px;  cursor: pointer; background-color: white">
+      ثبت نام
+        </button> </a>
+    </a> 
+    <a style="font-family:homa; font-size:20px">حساب کاربری نداری؟ </a> 
+ 
+</div>  
+<div stye="clear:float"></div>
+<div style="height: 50px;"></div>
+  <img src="{% static '/img/im1.png' %}"   width="660px" height="640px" alt="logo">
+
+</div>
+
+{%endblock%}

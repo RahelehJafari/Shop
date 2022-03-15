@@ -9,6 +9,7 @@ urlpatterns = [
     path('book/<int:pk>/', include('shop.urls')),
     path('author/', include('shop.urls')),
     path('translator/', include('shop.urls')),
+    path('accounts/', include('accounts.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

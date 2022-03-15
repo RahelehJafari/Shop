@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block banner %} 
+       
+{% endblock %} 
+
+
+{% block content %}
+
+<div  style=" text-align: center; padding:50px; float:left; width:500px">
+  
+    <a style="font-family:homa; font-size:40px"> (: خوش آمدی  </a>
+
+    <br/>
+    <div style="height: 50px;"></div>
+    <a style="font-family:homa; font-size:20px">  ثبت نام و ساخت حساب کاربری   </a> 
+
+    <div style="height: 50px;"></div>
+    <div id="login" >
+        <form method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+              <p>
+                {{ field.label_tag }}<br>
+                {{ field }}
+                {% if field.help_text %}
+                  <small style="color: grey">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+              </p>
+            {% endfor %}
+            <button type="submit">ثبت نام</button>
+          </form>
+  </div>
+
+  <div style="height: 50px;"></div>
+  
+       <a  href="{% url 'accounts:login' %}">    
+       <button style="border: none; 
+                color: #08929c; padding: 5px 5px;
+                text-align: center; text-decoration: none;
+                display: inline-block; font-size: 22px; font-family:homa;
+                 margin: 0px 0px;  cursor: pointer; background-color: white">
+        ورود
+        </button> </a>
+    </a> 
+    <a style="font-family:homa; font-size:20px">  حساب کاربری داری؟  </a> 
+ 
+</div>  
+
+
+<div stye="clear:float"></div>
+<div style="height: 100px;"></div>
+
+  <img src="{% static '/img/im1.png' %}"   width="660px" height="640px" alt="logo">
+
+</div>
+
+{%endblock%}

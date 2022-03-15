@@ -1,19 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
 <html style="--vh:9.53px;">
+    
 <head>
-    <style>
-        div.a {
-          text-align: justify; /* For Edge */
-          -moz-text-align-last: left; /* For Firefox prior 58.0 */
-          text-align-last: right;
-        }
-    </style>
+    
 
 <meta charset="utf-8">
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="icon" type="image/png" sizes="16x16" href="/images/logo1.png">
+
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 <meta name="application-name" content="طاقچه">
 <meta name="keywords" content="دانلود کتاب,کتاب الکترونیک,پی دی اف,pdf,epub,خرید کتاب,کتاب فارسی,رمان،">
@@ -31,23 +27,62 @@
 
 <body>
     <header >
-        <div dir="rtl" class="a">
-            <img src="{% static '/img/logo1.png' %}"   width="120px" height="60px" alt="logo">
-                <a class="undefined menu_showOnDesktop__3Ymxq" href="/categories">دسته‌بندی</a>
-                <a class="undefined menu_showOnDesktop__3Ymxq" href="/subscription">بی‌نهایت</a>
-                <a class="undefined menu_showOnDesktop__3Ymxq" href="/audiobook">صوتی</a>
-                <a class="undefined menu_showOnDesktop__3Ymxq" href="/">جستجو ؟؟ - </a>
-                <a class="menu_download__yZswd" href="https://taaghche.com/download">نصب طاقچه</a> 
+        <style>
+            
+        </style>
+
+        <div dir="rtl" style="padding:30px;float:left">
+            <a  href="{% url 'accounts:login' %}">    
+              <sup>  <button style="border: none; 
+                        color: black; padding: 5px 5px;
+                        text-align: center; text-decoration: none;
+                        display: inline-block; font-size: 22px; font-family:homa;
+                         margin: -15px 0px;  cursor: pointer; background-color: white">
+                ورود
+                </button> </a></sup>
+            </a> 
+            </div>
+        <div dir="rtl" style="padding:30px;float:left">
+        <a  href="https://taaghche.com/download">    
+          <sup>  <button style="border: none; 
+                    color: white; padding: 5px 5px;
+                    text-align: center; text-decoration: none;
+                    display: inline-block; font-size: 16px; font-family:homa;
+                     margin: -15px -30px;  cursor: pointer; background-color: #08929c">
+            نصب طاقچه
+            </button> </a></sup>
+        </a> 
+        </div>
+       
+
+        <div dir="rtl" >
+            <img src="{% static '/img/logo1.png' %}"   width="120px" height="60px" alt="logo"> &nbsp
+                <a style="font-family:homa; font-size:30px" href="/categories"> <sup> دسته‌بندی</sup></a> &nbsp
+                <a style="font-family:homa; font-size:30px" href="/subscription"> <sup> بی‌نهایت </sup></a> &nbsp
+                <a style="font-family:homa; font-size:30px" href="/audiobook"><sup>صوتی</sup></a> &nbsp
+                <a style="font-family:homa; font-size:10px" href="/">جستجو ؟؟ - </a>
+        </div>
+        
+       {% block banner %} 
+     
+        {% endblock %}    
+        </div>
+
         </div>
     </header>
 
     {% block content %}
 
     {% endblock %}
-   
+   <div>
+
+
+   </div>
     
     <footer >
+    <div>
         <hr/>
+    
         <div dir="rtl" style="padding:30px;float:left">
             <h5>وبلاگ طاقچه</h5>
             <ul>
@@ -156,6 +191,7 @@
                     <span>v<!-- -->3.54.2</span>
                 </div>
         </div>
+    </div>
     </footer>
 
 </body>

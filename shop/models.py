@@ -6,7 +6,7 @@ from django.urls import reverse
 class Book(models.Model):
     type_Coiches = {('V', 'voice'), ('T', 'text')}
     title = models.CharField(max_length=100)
-    slug = models.SlugField()
+    slug = models.SlugField(allow_unicode=True)
     author = models.ManyToManyField('Aut', blank = False)
     translator = models.ManyToManyField('Tr', blank = True)
     publisher = models.CharField(max_length=100)

@@ -27,21 +27,46 @@
 
 <body>
     <header >
-        <style>
-            
-        </style>
-
-        <div dir="rtl" style="padding:30px;float:left">
+      <div  dir="rtl" style="padding:30px;float:left">
+        {% if user.is_authenticated %}
+        
+          <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %}
+            <sup>  <button style="border: none; 
+                color: black; padding: 5px 5px;
+                text-align: center; text-decoration: none;
+                display: inline-block; font-size: 22px; font-family:homa;
+                 margin: -15px 0px;  cursor: pointer; background-color: white">
+        خروج      </button> </a></sup>
+          </form>
+        
+        {% else %}
+        
             <a  href="{% url 'accounts:login' %}">    
-              <sup>  <button style="border: none; 
-                        color: black; padding: 5px 5px;
-                        text-align: center; text-decoration: none;
-                        display: inline-block; font-size: 22px; font-family:homa;
-                         margin: -15px 0px;  cursor: pointer; background-color: white">
-                ورود
-                </button> </a></sup>
-            </a> 
-            </div>
+                <sup>  <button style="border: none; 
+                          color: black; padding: 5px 5px;
+                          text-align: center; text-decoration: none;
+                          display: inline-block; font-size: 22px; font-family:homa;
+                           margin: -15px 0px;  cursor: pointer; background-color: white">
+                  ورود
+                  </button> </a></sup>
+              </a> 
+        
+
+        {% endif %}
+     
+        </div>
+
+
+
+
+
+
+
+
+
+             
+        
         <div dir="rtl" style="padding:30px;float:left">
         <a  href="https://taaghche.com/download">    
           <sup>  <button style="border: none; 

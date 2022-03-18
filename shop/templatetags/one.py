@@ -4,9 +4,7 @@ register = template.Library()
 
 @register.filter
 def persian_int(number):
-    persian_numbers = u'۱۲۳۴۵۶۷۸۹۰'
-    english_numbers = u'1234567890'
-
+   
     list = [int(x) for x in str(number)]
    
     dic = { 

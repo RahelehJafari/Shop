@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+{% load one %}
 {% load static %}
+
 
 {% block content %}
 <div>
@@ -10,6 +12,8 @@
         <h3 class="book-name">{{ book_detail.name }}</h3>
         
         <p>{{ book_detail.description }}</p>
+
+        <p>  <strong> قیمت:</strong>  {{book_detail.price|persian_int}}    تومان  </p>
 
     </div>
 

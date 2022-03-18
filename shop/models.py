@@ -15,11 +15,9 @@ class Book(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField('cat', blank=True)
-    ISBN = models.IntegerField(null=True)
     type = models.CharField(choices=type_Coiches, max_length=1, blank=True)
-    pages = models.IntegerField(null=True)
     image = models.ImageField(upload_to='images/product/%Y/%m/%d', blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=0)
+    price = models.IntegerField(null=True)
 
     
 

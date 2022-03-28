@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title  %}
+    Shopping CART
+{% endblock %}
+
+{% block content %}
+
+    <h1>سبد خرید </h1>
+<div>
+  {% for item in cart %}
+    <h2>{{ item.title }}</h2>
+  {% endfor %} 
+</div>
+{% endblock %}
+

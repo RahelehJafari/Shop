@@ -4,10 +4,13 @@ from .cart import Cart
 from shop import models
 
 
-def cart_add(requset):
+@require_POST
+def cart_add(requset, book_id):
     cart = Cart(requset)
-    book = get_object_or_404(models.Book, id=1)
-    cart.add(book)
+    book = get_object_or_404(models.Book, id=book_id)
+    #form = forms.CartAddBookForm(request.POST)
+   # if form.is_valid():
+    cart.add(book=book)
     return redirect(reverse('cart:cart_detail'))
 
 

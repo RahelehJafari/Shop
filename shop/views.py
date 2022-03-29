@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from . import models
+from cart.forms import CartAddBookForm
 
 
 
@@ -10,7 +11,8 @@ def index(request):
 
 def book(request, slug):
     book_detail = get_object_or_404(models.Book, slug=slug)
-    return render(request, 'book.html', {'book_detail': book_detail})
+    cart_add_book_form = CartAddBookForm()
+    return render(request, 'book.html', {'book_detail': book_detail, 'cart_add_book_form':cart_add_book_form})
                                             
 
 

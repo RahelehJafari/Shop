@@ -14,7 +14,14 @@
         <p>{{ book_detail.description }}</p>
 
         <p>  <strong> قیمت:</strong>  {{book_detail.price|persian_int}}    تومان  </p>
-
+       
+    </div>
+    <div class="add-to-cart">
+        <form method="post" action="{% url 'cart:cart_add' book_detail.id %}">
+            {{ cart_add_book_form }}
+            {% csrf_token %} 
+            <input type="submit" value="افزودن به سبد خرید">
+        </form>
     </div>
 
 

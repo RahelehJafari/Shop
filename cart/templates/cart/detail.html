@@ -10,7 +10,8 @@
     <h1>سبد خرید </h1>
 <div>
   {% for item in cart %}
-    <h2>{{ item.title }}</h2>
+    <h2>{{ item.book.title }}</h2>
+    <h2>{{ item.price }}</h2>
   {% endfor %} 
 </div>
 {% endblock %}

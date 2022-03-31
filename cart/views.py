@@ -25,3 +25,5 @@ def cart_detail(request):
     cart = Cart(request)
     cart_items = cart.show_cart()
     return render(request, 'cart/detail.html', {'cart': cart_items})
+
+    

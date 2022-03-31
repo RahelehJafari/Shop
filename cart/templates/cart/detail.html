@@ -7,7 +7,41 @@
 
 {% block content %}
 
-    <h1>سبد خرید </h1>
+<h1> سبد خرید شما  </h1>
+<table>
+  <thead>
+    <tr>
+      <th>  </th>
+      <th>  </th>
+      <th>   </th>
+      <th> قیمت </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in cart %}  
+        {% with book=item.book %} 
+          <tr>
+            <td>
+              <a href="{{ book.get_absolute_url }}">
+                <img src="{{ book.image.url }}">
+              </a>
+            </td>
+            <td> {{ book.title }}</td>
+            <td> 
+              <a href="{% url 'cart:cart_remove' book.id %}"> حذف </a>
+            </td>
+            <td> {{ book.price }} </td>
+          </tr>
+        {% endwith %} 
+    {% endfor %}      
+  </tbody>
+</table>
+
+<h3>{{ cart.get_total_price }} :  جمع کل</h3>
+
+
+
+
 <div>
   {% for item in cart %}
     <h2>{{ item.book.title }}</h2>

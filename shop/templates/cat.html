@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load one %}
+{% load static %}
+
+
+{% block content %}
+
+   <div class="cat_list">
+    <center>
+
+    <h2 class="cat-name">{{ cat_list.name }}</h2>
+       
+        <table>
+        <tr>
+        {% for book in books %}
+        <td>
+            <center>
+        <a href="{{ book.get_absolute_url }}">
+            <img src="{{ book.image.url }}"  width="{{100}}"   >
+        </a>
+        <h4> {{book.title}}</h4> 
+        <td> </td>
+            </center>
+        </td>
+        {% if forloop.last %}
+        </tr>
+        {% else %}
+     {% if forloop.counter|divisibleby:"5" %}
+       </tr><tr>
+     {% endif %}
+   {% endif %}
+   {% endfor %}
+        </table>           
+        
+
+
+    </center> 
+   
+    </div>
+    
+
+{% endblock %}

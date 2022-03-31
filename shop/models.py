@@ -27,7 +27,7 @@ class Book(models.Model):
     
 
     def get_absolute_url(self):
-        return reverse('shop:book', args=[self.id])
+        return reverse('shop:book', args=[self.slug])
 
 
 class Aut(models.Model):
@@ -47,9 +47,13 @@ class Tr(models.Model):
 
 class Cat(models.Model):
     name = models.CharField(max_length=50)
+    slug = models.SlugField(allow_unicode=True)
      
     def __str__(self):
       return self.name
+    
+    def get_absolute_url(self):
+        return reverse('shop:cat', args=[self.slug])      
 
 
 class Pub(models.Model):

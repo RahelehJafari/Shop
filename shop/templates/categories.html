@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+ 
+<div dir="rtl"> 
+      
+    {% for cat in cats %}
+<a href="{{ cat.get_absolute_url }}">  <h2> {{cat.name}} </h2>  </a> 
+
+    {% endfor %}
+
+</div>
+
+
+    {% endblock %}

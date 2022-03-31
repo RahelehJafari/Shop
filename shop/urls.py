@@ -9,5 +9,7 @@ urlpatterns = [
     path('book/<slug>/', views.book, name='book'),
     path('author/<int:pk>/', views.author, name='author'),
     path('translator/<int:pk>/', views.translator, name='translator'),
-    
+    path('categories/', views.categories , name='categories'),  
+    path('categories/<slug>/', views.cat , name='cat'),
+ 
 ]

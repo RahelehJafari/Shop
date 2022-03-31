@@ -37,4 +37,7 @@ class Cart:
         self.session[settings.CART_SESSION_ID]= self.cart
         self.session.modified = True
 
+    def get_total_price(self):
+        return sum(Decimal(item['price']) for item in self.cart.values() )    
+
                 
